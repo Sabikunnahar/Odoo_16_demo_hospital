@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Form view-->
     <record id="view_hospital_patient_form" model="ir.ui.view">
         <field name="name">hospital.patient.form</field>
         <field name="model">hospital.patient</field>
@@ -12,6 +13,7 @@
                         <field name="age"/>
                         <field name="is_child"/>
                         <field name="gender"/>
+                        <field name="capitalized_name"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
@@ -22,6 +24,7 @@
         </field>
     </record>
 
+    <!-- Tree view-->
     <record id="view_hospital_patient_tree" model="ir.ui.view">
         <field name="name">hospital.patient.tree</field>
         <field name="model">hospital.patient</field>
@@ -34,7 +37,7 @@
         </field>
     </record>
 
-
+    <!-- action-->
     <record id="action_hospital_view" model="ir.actions.act_window">
         <field name="name">Patient</field>
         <field name="res_model">hospital.patient</field>
@@ -45,6 +48,7 @@
             </p>
         </field>
     </record>
+
     <menuitem
             id="menu_hospital_patient"
             name="Patient"

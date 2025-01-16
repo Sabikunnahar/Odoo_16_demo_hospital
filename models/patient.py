@@ -11,6 +11,15 @@ class HospitalPatients(models.Model):
     notes = fields.Text(string="Notes")
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'),
                                ('other', 'Other')], string="Gender", tracking=True)
+    capitalized_name = fields.Char(string="Capitalized Name" , compute="_compute_capitalized_name")
+
+    @api.depends('name')
+    def _compute_capitalized_name(self):
+        if self.name:
+            self.capitalized_name = self.name.upper()
+        else:
+            self.capitalized_name = ''
+
 
     @api.onchange('age')
     def _onchange_age(self):

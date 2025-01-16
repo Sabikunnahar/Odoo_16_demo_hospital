@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menu will not appear until any action is assign.
+    The action have to assign to itself or its submenus
+    and have to give all access right in 'ir.model.access.csv' file-->
+    <menuitem
+            id="menu_hospital"
+            name="Hospital"
+            sequence="10"/>
+    <menuitem
+            id="menu_hospital_operation"
+            name="Operation"
+            parent="menu_hospital"
+            sequence="11"/>
+
+</odoo>

@@ -1,4 +1,5 @@
 from odoo import api, fields, models, _, tools
+from odoo.exceptions import ValidationError
 
 class HospitalPatients(models.Model):
     _name = "hospital.patient"
@@ -20,10 +21,14 @@ class HospitalPatients(models.Model):
         else:
             self.capitalized_name = ''
 
-
     @api.onchange('age')
     def _onchange_age(self):
         if self.age<= 10:
             self.is_child = True
         else:
             self.is_child = False
+
+    @api.constrains('is_child','age')
+    def _check_age(self):
+        if self.is_child and self.age == 0:
+            raise ValidationError(_("Age must be greater than or equal to 10"))

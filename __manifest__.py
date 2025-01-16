@@ -4,7 +4,7 @@
     'summary': 'For Hospital Management System',
     'sequence': 2,
     'website': 'https://www.odoo.com/app/invoicing',
-    'depends': ['base'],
+    'depends': ['base', 'mail'],
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',

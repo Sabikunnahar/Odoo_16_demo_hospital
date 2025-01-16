@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="view_hospital_patient_form" model="ir.ui.view">
+        <field name="name">hospital.patient.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <!-- Sheet tag use to create a div type section-->
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="is_child"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hospital_patient_tree" model="ir.ui.view">
+        <field name="name">hospital.patient.tree</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+            </tree>
+        </field>
+    </record>
+
+
     <record id="action_hospital_view" model="ir.actions.act_window">
         <field name="name">Patient</field>
         <field name="res_model">hospital.patient</field>
@@ -13,7 +45,7 @@
     <menuitem
             id="menu_hospital_patient"
             name="Patient"
-            parent="menu_hospital"
+            parent="menu_hospital_operation"
             action="action_hospital_view"
             sequence="12"/>
 </odoo>

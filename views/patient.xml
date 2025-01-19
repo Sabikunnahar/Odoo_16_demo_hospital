@@ -37,6 +37,7 @@
         <field name="arch" type="xml">
             <tree string="Hospital">
                 <field name="name"/>
+                <field name="ref"/>
                 <field name="age"/>
                 <field name="gender"/>
             </tree>

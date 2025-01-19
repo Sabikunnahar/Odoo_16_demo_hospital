@@ -13,6 +13,16 @@ class HospitalPatients(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'),
                                ('other', 'Other')], string="Gender", tracking=True)
     capitalized_name = fields.Char(string="Capitalized Name" , compute="_compute_capitalized_name")
+    ref = fields.Char('Name', default=lambda self: _('New'), readonly=True, tracking=True)
+    #This 'default=lambda self: _('New')' will the value New initially
+
+
+    # This is default/origin build in create function of odoo
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            vals['ref'] = self.env['ir.sequence'].next_by_code('hospital.patient')
+        return super(HospitalPatients, self).create(vals_list)
 
     @api.depends('name')
     def _compute_capitalized_name(self):

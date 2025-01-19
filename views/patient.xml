@@ -2,27 +2,33 @@
 <odoo>
     <!-- Form view-->
     <record id="view_hospital_patient_form" model="ir.ui.view">
-        <field name="name">hospital.patient.form</field>
-        <field name="model">hospital.patient</field>
-        <field name="arch" type="xml">
-            <form>
-                <!-- Sheet tag use to create a div type section-->
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="age"/>
-                        <field name="is_child"/>
-                        <field name="gender"/>
-                        <field name="capitalized_name"/>
-                    </group>
-                </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+    <field name="name">hospital.patient.form</field>
+    <field name="model">hospital.patient</field>
+    <field name="arch" type="xml">
+        <form>
+            <!-- Sheet tag used to create a div-type section-->
+            <sheet>
+                <div class="oe_title">
+                    <h1>
+                        <field name="ref"/>  
+                    </h1>
                 </div>
-            </form>
-        </field>
-    </record>
+                <group>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="is_child"/>
+                    <field name="gender"/>
+                    <field name="capitalized_name"/>
+                </group>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+            </div>
+        </form>
+    </field>
+</record>
+
 
     <!-- Tree view-->
     <record id="view_hospital_patient_trees" model="ir.ui.view">

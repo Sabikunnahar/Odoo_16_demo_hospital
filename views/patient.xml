@@ -2,32 +2,32 @@
 <odoo>
     <!-- Form view-->
     <record id="view_hospital_patient_form" model="ir.ui.view">
-    <field name="name">hospital.patient.form</field>
-    <field name="model">hospital.patient</field>
-    <field name="arch" type="xml">
-        <form>
-            <!-- Sheet tag used to create a div-type section-->
-            <sheet>
-                <div class="oe_title">
-                    <h1>
-                        <field name="ref"/>  
-                    </h1>
+        <field name="name">hospital.patient.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <!-- Sheet tag used to create a div-type section-->
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="is_child"/>
+                        <field name="gender"/>
+                        <field name="capitalized_name"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
                 </div>
-                <group>
-                    <field name="name"/>
-                    <field name="age"/>
-                    <field name="is_child"/>
-                    <field name="gender"/>
-                    <field name="capitalized_name"/>
-                </group>
-            </sheet>
-            <div class="oe_chatter">
-                <field name="message_follower_ids"/>
-                <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
-            </div>
-        </form>
-    </field>
-</record>
+            </form>
+        </field>
+    </record>
 
 
     <!-- Tree view-->
@@ -41,6 +41,30 @@
                 <field name="age"/>
                 <field name="gender"/>
             </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_hospital_patient_search" model="ir.ui.view">
+        <field name="name">hospital.patient.search</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="['|',('name','ilike',self),('ref','ilike',self)]"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <!-- Adding filter search-->
+                <filter string="Male" name="filter_male" domain="[('gender', '=', 'male')]"/>
+                <filter string="Female" name="filter_female" domain="[('gender', '=', 'female')]"/>
+                <filter string="Other" name="filter_other" domain="[('gender', '=', 'other')]"/>
+                <separator/>
+                <filter string="Childs" name="is_child" domain="[('is_child', '=', True)]"/>
+                <!-- Group By Gender search-->
+                <group expand="1" string="Group By">
+                    <filter string="Gender" name="group_by_gender"
+                            context="{'group_by': 'gender'}"/>
+                </group>
+            </search>
         </field>
     </record>
 

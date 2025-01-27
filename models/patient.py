@@ -17,7 +17,13 @@ class HospitalPatients(models.Model):
     #This 'default=lambda self: _('New')' will the value New initially
 
     doctor_id=fields.Many2one('hospital.doctor', string="Doctor Name")
-
+    tag_ids = fields.Many2many(
+        'res.partner.category',  # Target model
+        'hospital_patient_rel',  # Name of the relational table
+        'patient_id',  # Column for the current model (`hospital.patient`)
+        'tag_id',  # Column for the target model (`res.partner.category`)
+        string="Tags"
+    )
 
     # This is default/origin build in create function of odoo
     @api.model_create_multi

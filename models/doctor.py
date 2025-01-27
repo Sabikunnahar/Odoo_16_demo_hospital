@@ -12,3 +12,12 @@ class HospitalPatients(models.Model):
     reference = fields.Char(string="Reference")
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'),
                                ('other', 'Other')], string="Gender", tracking=True)
+
+
+    # When you want to combine two fields while access to many2one relation you can use this function and it has no decorator
+    def name_get(self):
+        res = []
+        for rec in self:
+            name = f'{rec.reference} - {rec.name}'
+            res.append((rec.id, name))
+        return res

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<!--Form view-->
+    <!--Form view-->
     <record id="view_hospital_doctor_form" model="ir.ui.view">
         <field name="name">hospital.doctor.form</field>
         <field name="model">hospital.doctor</field>
@@ -8,9 +8,12 @@
             <form>
                 <sheet>
                     <group>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
                         <field name="name"/>
                         <field name="reference"/>
                         <field name="gender"/>
+                        <field name="active" invisible="1"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
@@ -20,7 +23,7 @@
             </form>
         </field>
     </record>
-<!--Tree View-->
+    <!--Tree View-->
     <record id="view_hospital_doctor_trees" model="ir.ui.view">
         <field name="name">hospital.doctor.tree</field>
         <field name="model">hospital.doctor</field>
@@ -38,6 +41,7 @@
         <field name="model">hospital.doctor</field>
         <field name="arch" type="xml">
             <search>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
                 <separator/>
                 <!-- Group By Gender search-->
                 <group expand="1" string="Group By">

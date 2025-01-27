@@ -13,6 +13,7 @@
                             <field name="ref"/>
                         </h1>
                     </div>
+                    <!-- group tag uses for width 100 for fields-->
                     <group>
                         <field name="name"/>
                         <field name="age"/>
@@ -80,6 +81,7 @@
         </field>
     </record>
 
+    <!-- Note: If the menu item is not working either action is not define or access is not given in 'ir.model.access.csv'-->
     <menuitem
             id="menu_hospital_patient"
             name="Patient"

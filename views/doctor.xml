@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hospital_doctor_form" model="ir.ui.view">
+        <field name="name">hospital.doctor.form</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="reference"/>
+                        <field name="gender"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hospital_doctor_trees" model="ir.ui.view">
+        <field name="name">hospital.doctor.tree</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <tree string="Doctor">
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="gender"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- action-->
+    <record id="action_hospital_doctor_view" model="ir.actions.act_window">
+        <field name="name">Hospital Doctors</field>
+        <field name="res_model">hospital.doctor</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new account
+            </p>
+        </field>
+    </record>
+
+    <!-- Note: If the menu item is not working either action is not define or access is not given in 'ir.model.access.csv'-->
+    <menuitem
+            id="menu_hospital_doctors"
+            name="Doctors"
+            parent="menu_hospital_clinical"
+            action="action_hospital_doctor_view"
+            sequence="12"/>
+</odoo>

@@ -10,6 +10,7 @@
         'data/sequence.xml',
         'views/menu.xml',
         'views/patient.xml',
+        'views/doctor.xml',
     ],
     'license': 'LGPL-3',
     'installable': True,

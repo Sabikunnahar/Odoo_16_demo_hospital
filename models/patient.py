@@ -16,6 +16,8 @@ class HospitalPatients(models.Model):
     ref = fields.Char('Name', default=lambda self: _('New'), readonly=True, tracking=True)
     #This 'default=lambda self: _('New')' will the value New initially
 
+    doctor_id=fields.Many2one('hospital.doctor', string="Doctor Name")
+
 
     # This is default/origin build in create function of odoo
     @api.model_create_multi

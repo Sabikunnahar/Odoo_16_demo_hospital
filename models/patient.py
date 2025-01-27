@@ -6,7 +6,7 @@ class HospitalPatients(models.Model):
     _inherit = ['mail.thread']
     _description = "Hospital Patients Records"
 
-    name = fields.Char(string="Name", required=True, tracking=True)
+    name = fields.Char(string="Name", required=True, tracking=True) #tracking is use to show the changes values in the chatter
     age = fields.Integer(string="Age", tracking=True)
     is_child = fields.Boolean(string="Is Child", default=False)
     notes = fields.Text(string="Notes")

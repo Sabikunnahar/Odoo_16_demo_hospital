@@ -24,6 +24,8 @@ class HospitalPatients(models.Model):
         'tag_id',  # Column for the target model (`res.partner.category`)
         string="Tags"
     )
+    state = fields.Selection([('draft', 'Draft'), ('confirmed', 'Confirmed'),
+                               ('ongoing', 'Ongoing'), ('done', 'Done'), ('cancel', 'Cancel')])
 
     # This is default/origin build in create function of odoo
     @api.model_create_multi

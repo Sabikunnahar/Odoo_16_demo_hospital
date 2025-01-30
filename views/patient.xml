@@ -6,6 +6,9 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
                 <!-- Sheet tag used to create a div-type section-->
                 <sheet>
                     <div class="oe_title">

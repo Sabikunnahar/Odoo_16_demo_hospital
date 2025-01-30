@@ -65,6 +65,7 @@
                 <filter string="Other" name="filter_other" domain="[('gender', '=', 'other')]"/>
                 <separator/>
                 <filter string="Childs" name="is_child" domain="[('is_child', '=', True)]"/>
+                <filter string="Children" name="is_child" domain="[('age', '&lt;=', 10)]"/>
                 <!-- Group By Gender search-->
                 <group expand="1" string="Group By">
                     <filter string="Gender" name="group_by_gender"

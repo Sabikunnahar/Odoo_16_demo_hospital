@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- action-->
+    <record id="action_hospital_female_patient" model="ir.actions.act_window">
+        <field name="name">Patient</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('gender', '=', 'female')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a New Female patient
+            </p>
+        </field>
+    </record>
+
+    <!-- Note: If the menu item is not working either action is not define or access is not given in 'ir.model.access.csv'-->
+    <menuitem
+            id="menu_hospital_female_patient"
+            name="Female Patient"
+            parent="menu_hospital_operation"
+            action="action_hospital_female_patient"
+            sequence="12"/>
+</odoo>

@@ -5,6 +5,8 @@
         <field name="name">Patient</field>
         <field name="res_model">hospital.patient</field>
         <field name="view_mode">tree,form</field>
+        <!--  Anything default can be add by context. add 'default_' then the field nae you want to set default-->
+        <field name="context">{'default_gender':'female'}</field>
         <field name="domain">[('gender', '=', 'female')]</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

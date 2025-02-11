@@ -12,6 +12,7 @@
         'views/patient.xml',
         'views/doctor.xml',
         'views/female_patient.xml',
+        'views/appointment_view.xml',
     ],
     'license': 'LGPL-3',
     'installable': True,

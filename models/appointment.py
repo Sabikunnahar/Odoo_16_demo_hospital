@@ -8,3 +8,5 @@ class HospitalAppointment(models.Model):
     patient_id = fields.Many2one('hospital.patient', string='Patient')
     appointment_time = fields.Datetime(string='Appointment Time', default=fields.Datetime.now)
     booking_date = fields.Datetime(string='Booking Date', default=fields.Date.context_today)
+    # This gender is the relational filed
+    gender = fields.Selection( related='patient_id.gender')

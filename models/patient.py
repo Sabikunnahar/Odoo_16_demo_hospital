@@ -1,5 +1,6 @@
 from odoo import api, fields, models, _, tools
 from odoo.exceptions import ValidationError
+from datetime import date
 
 class HospitalPatients(models.Model):
     _name = "hospital.patient"
@@ -7,7 +8,8 @@ class HospitalPatients(models.Model):
     _description = "Hospital Patients Records"
 
     name = fields.Char(string="Name", required=True, tracking=True) #tracking is use to show the changes values in the chatter
-    age = fields.Integer(string="Age", tracking=True)
+    date_of_birth = fields.Date(string="Date of Birth", required=True, tracking=True)
+    age = fields.Integer(string="Age", tracking=True,compute="_compute_age")
     is_child = fields.Boolean(string="Is Child", default=False)
     notes = fields.Text(string="Notes")
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'),
@@ -52,3 +54,11 @@ class HospitalPatients(models.Model):
     def _check_age(self):
         if self.is_child and self.age == 0:
             raise ValidationError(_("Age must be greater than or equal to 10"))
+
+    def _compute_age(self):
+        for rec in self:
+            today = date.today()
+            if rec.date_of_birth:
+                rec.age = today.year - rec.date_of_birth.year
+            else:
+                rec.age = 0

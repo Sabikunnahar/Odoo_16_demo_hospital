@@ -19,6 +19,7 @@
                     <!-- group tag uses for width 100 for fields-->
                     <group>
                         <field name="name"/>
+                        <field name="date_of_birth"/>
                         <field name="age"/>
                         <field name="is_child"/>
                         <field name="gender"/>
@@ -57,7 +58,8 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name" filter_domain="['|',('name','ilike',self),('ref','ilike',self)]"/>
-                <field name="age"/>
+                <!-- age cannot be view because its has compute function-->
+                <!-- <field name="age"/>-->
                 <field name="gender"/>
                 <!-- Adding filter search-->
                 <filter string="Male" name="filter_male" domain="[('gender', '=', 'male')]"/>
@@ -65,7 +67,7 @@
                 <filter string="Other" name="filter_other" domain="[('gender', '=', 'other')]"/>
                 <separator/>
                 <filter string="Childs" name="is_child" domain="[('is_child', '=', True)]"/>
-                <filter string="Children" name="is_child" domain="[('age', '&lt;=', 10)]"/>
+                <!-- <filter string="Children" name="is_child" domain="[('age', '&lt;=', 10)]"/>-->
                 <!-- Group By Gender search-->
                 <group expand="1" string="Group By">
                     <filter string="Gender" name="group_by_gender"

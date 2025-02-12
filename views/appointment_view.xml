@@ -13,6 +13,15 @@
                         <field name="appointment_time"/>
                         <field name="booking_date"/>
                     </group>
+                    <notebook>
+                        <page string="Prescription" name="prescription">
+                        </page>
+                        <page string="Pharmacy" name="pharmacy">
+                        </page>
+                        <page string="Others" name="others">
+                        </page>
+                    </notebook>
+
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>

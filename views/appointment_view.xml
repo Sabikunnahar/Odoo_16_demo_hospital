@@ -9,6 +9,9 @@
                 <sheet>
                     <group>
                         <field name="patient_id"/>
+                        <field name="ref"/>
+                        <field name="appointment_time"/>
+                        <field name="booking_date"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
@@ -25,7 +28,7 @@
         <field name="arch" type="xml">
             <tree string="Doctor">
                 <field name="patient_id"/>
-
+                <field name="ref"/>
             </tree>
         </field>
     </record>

@@ -5,7 +5,7 @@
         <field name="name">hospital.appointment.form</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <form>
+            <form create="0" delete="0" edit="0">
                 <sheet>
                     <group>
                         <field name="patient_id"/>
@@ -15,6 +15,9 @@
                     </group>
                     <notebook>
                         <page string="Prescription" name="prescription">
+                            <group>
+                                <field name="prescription" placeholder="Enter your prescription"/>
+                            </group>
                         </page>
                         <page string="Pharmacy" name="pharmacy">
                         </page>

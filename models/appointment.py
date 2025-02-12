@@ -12,6 +12,7 @@ class HospitalAppointment(models.Model):
     booking_date = fields.Datetime(string='Booking Date', default=fields.Date.context_today)
     # This gender is the relational filed
     gender = fields.Selection( related='patient_id.gender')
+    prescription = fields.Html(string='Prescription', tracking=True)
 
     @api.onchange('patient_id')
     def _onchange_reference(self):

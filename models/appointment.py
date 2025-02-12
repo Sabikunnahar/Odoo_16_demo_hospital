@@ -13,6 +13,12 @@ class HospitalAppointment(models.Model):
     # This gender is the relational filed
     gender = fields.Selection( related='patient_id.gender')
     prescription = fields.Html(string='Prescription', tracking=True)
+    # for priority widget batch
+    priority = fields.Selection([
+        ('0', 'Normal'),
+        ('1', 'Low'),
+        ('2', 'High'),
+        ('3', 'Very High')], string="Priority")
 
     @api.onchange('patient_id')
     def _onchange_reference(self):

@@ -31,3 +31,6 @@ class HospitalAppointment(models.Model):
     @api.onchange('patient_id')
     def _onchange_reference(self):
         self.ref = self.patient_id.ref
+
+    def test_object_button(self):
+        print("Object Button Called")

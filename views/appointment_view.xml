@@ -12,6 +12,13 @@
                     <field name="state" widget="statusbar" class="o_field_statusbar"
                            nolabel="1" options="{'clickable': '1', 'fold_field': 'fold'}"
                            statusbar_visible="draft,in_consultation,done"/>
+                    <!-- There is 2 type of button - object and action
+                     1. Object is to call a corresponding function
+                     2. Action is to call any action on view-->
+                    <button name="test_object_button" string="Object Button" type="object" class="oe_highlight"/>
+                    <button name="%(demo_hospital.action_hospital_view)d" type="action" string="Action Button" class="oe_highlight"/>
+
+
                 </header>
                 <sheet>
                     <div class="o_title">

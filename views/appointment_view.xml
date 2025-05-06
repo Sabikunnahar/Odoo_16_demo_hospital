@@ -6,6 +6,13 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <form create="0" delete="0" edit="0">
+                <header>
+                    <!-- Here, 1. if you want to make the status bar clickable, you have to make it true by.
+                                2. If you want to make some state visible only you can ddo that by statusbar_visible-->
+                    <field name="state" widget="statusbar" class="o_field_statusbar"
+                           nolabel="1" options="{'clickable': '1', 'fold_field': 'fold'}"
+                           statusbar_visible="draft,in_consultation,done"/>
+                </header>
                 <sheet>
                     <div class="o_title">
                         <h1>

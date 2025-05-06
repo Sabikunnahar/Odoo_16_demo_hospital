@@ -20,6 +20,14 @@ class HospitalAppointment(models.Model):
         ('2', 'High'),
         ('3', 'Very High')], string="Priority")
 
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('in_consultation', 'In consultation'),
+        ('done', 'Done'),
+        ('cancel', 'Cancel')
+    ])
+
+
     @api.onchange('patient_id')
     def _onchange_reference(self):
         self.ref = self.patient_id.ref

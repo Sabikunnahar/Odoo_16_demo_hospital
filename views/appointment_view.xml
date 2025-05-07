@@ -25,7 +25,7 @@
                             <field name="ref"/>
                             <field name="appointment_time"/>
                             <field name="booking_date"/>
-                            <field name="doctor_id" widget="many2one_avatar"/>
+                            <field name="doctor_id" widget="many2one_avatar_user"/>
                         </group>
                         <group>
                             <!-- There is 2 type of button - object and action

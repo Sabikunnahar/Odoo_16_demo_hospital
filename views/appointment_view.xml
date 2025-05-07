@@ -7,6 +7,14 @@
         <field name="arch" type="xml">
             <form create="0" delete="0">
                 <header>
+                    <!-- Suppose you want to change the states by button, It can be done but below button clicking -->
+                    <button name="action_in_consultation" string="In Consultation" states="draft" type="object"
+                            class="oe_highlight"/>
+                    <button name="action_progress" string="In Progress" states="in_consultation" type="object" class="oe_highlight"/>
+                    <button name="action_done" string="Mark as Done" states="progress" type="object" class="oe_highlight"/>
+                    <button name="action_cancel" string="Cancel" states="draft,in_consultation,progress" type="object"/>
+                    <button name="action_reset" string="Reset All" states="done,cancel" type="object" class="oe_highlight"/>
+
                     <!-- Here, 1. if you want to make the status bar clickable, you have to make it true by.
                                 2. If you want to make some state visible only you can ddo that by statusbar_visible-->
                     <field name="state" widget="statusbar" class="o_field_statusbar"
@@ -75,7 +83,7 @@
         <field name="arch" type="xml">
             <tree string="Doctor" decoration-success="state == 'done'" sample="1" multi_edit="1"><!-- When you want to show some sample/Example
                                                                                                     data while empty, then you can by using 'sample' -->
-                                                                                                    <!-- Suppose you want to edit from tree view, it can be by 'multi_edit' -->
+                <!-- Suppose you want to edit from tree view, it can be by 'multi_edit' -->
                 <field name="patient_id" optional="show"/><!-- To make the tree to a dynamic table, you need to add at least in one field
                                                             'optional' as show or hide -->
                 <field name="ref"/>

@@ -34,3 +34,11 @@ class HospitalAppointment(models.Model):
 
     def test_object_button(self):
         print("Object Button Called")
+        # This is for showing a rainbow msg in the UI
+        return {
+            'effect': {
+                'fadeout': 'slow',
+                'message': 'Hey! Thank you for clicking',
+                'type': 'rainbow_man',
+            }
+        }

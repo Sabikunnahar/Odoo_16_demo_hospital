@@ -74,6 +74,7 @@
                 <field name="patient_id"/>
                 <field name="ref"/>
                 <field name="booking_date"/>
+                <field name="activity_ids" widget="list_activity"/>
                 <field name="state" widget="badge"
                        decoration-info="state in ('in_consultation', 'progress')"
                        decoration-muted="state == 'canceled'"

@@ -4,7 +4,7 @@ from datetime import date
 
 class HospitalPatients(models.Model):
     _name = "hospital.patient"
-    _inherit = ['mail.thread']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Hospital Patients Records"
 
     name = fields.Char(string="Name", required=True, tracking=True) #tracking is use to show the changes values in the chatter

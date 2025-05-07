@@ -2,7 +2,7 @@ from odoo import api, fields, models, _, tools
 
 class HospitalAppointment(models.Model):
     _name = "hospital.appointment"
-    _inherit = ['mail.thread']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Hospital appointment"
     _rec_name = 'ref'
 

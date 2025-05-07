@@ -13,6 +13,8 @@ class HospitalAppointment(models.Model):
     # This gender is the relational filed
     gender = fields.Selection( related='patient_id.gender')
     prescription = fields.Html(string='Prescription', tracking=True)
+    doctor_id = fields.Many2one('res.users', string='Doctor')
+
     # for priority widget batch
     priority = fields.Selection([
         ('0', 'Normal'),

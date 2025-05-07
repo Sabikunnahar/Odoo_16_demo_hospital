@@ -5,7 +5,7 @@
         <field name="name">hospital.appointment.form</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <form create="0" delete="0" edit="0">
+            <form create="0" delete="0">
                 <header>
                     <!-- Here, 1. if you want to make the status bar clickable, you have to make it true by.
                                 2. If you want to make some state visible only you can ddo that by statusbar_visible-->
@@ -25,6 +25,7 @@
                             <field name="ref"/>
                             <field name="appointment_time"/>
                             <field name="booking_date"/>
+                            <field name="doctor_id" widget="many2one_avatar"/>
                         </group>
                         <group>
                             <!-- There is 2 type of button - object and action
@@ -76,6 +77,7 @@
                 <field name="patient_id" optional="show"/>
                 <field name="ref"/>
                 <field name="booking_date"/>
+                <field name="doctor_id"/>
                 <field name="activity_ids" widget="list_activity" optional="hide"/>
                 <field name="state" widget="badge" optional="hide"
                        decoration-info="state in ('in_consultation', 'progress')"

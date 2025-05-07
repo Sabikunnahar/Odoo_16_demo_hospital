@@ -12,14 +12,6 @@
                     <field name="state" widget="statusbar" class="o_field_statusbar"
                            nolabel="1" options="{'clickable': '1', 'fold_field': 'fold'}"
                            statusbar_visible="draft,in_consultation,done"/>
-
-                    <!-- There is 2 type of button - object and action
-                     1. Object is to call a corresponding function
-                     2. Action is to call any action on view-->
-                    <button name="test_object_button" string="Object Button" type="object" class="oe_highlight" confirm="Are you sure you want to execute?"/>
-                    <button name="%(demo_hospital.action_hospital_view)d" type="action" string="Action Button" class="oe_highlight" confirm="Are you sure you want to move to patient page?"/>
-
-
                 </header>
                 <sheet>
                     <div class="o_title">
@@ -28,10 +20,30 @@
                         </h1>
                     </div>
                     <group>
-                        <field name="patient_id"/>
-                        <field name="ref"/>
-                        <field name="appointment_time"/>
-                        <field name="booking_date"/>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="ref"/>
+                            <field name="appointment_time"/>
+                            <field name="booking_date"/>
+                        </group>
+                        <group>
+                            <!-- There is 2 type of button - object and action
+                             1. Object is to call a corresponding function
+                             2. Action is to call any action on view-->
+
+                            <!--Suppose when you hover into the button you want
+                            to show some msg, then you can do by 'help'-->
+                            <button name="test_object_button" string="Object Button" type="object"
+                                    class="oe_highlight"
+                                    confirm="Are you sure you want to execute?"
+                                    help="This button is Object Button example"/>
+                            <button name="%(demo_hospital.action_hospital_view)d" type="action"
+                                    string="Action Button"
+                                    class="oe_highlight"
+                                    confirm="Are you sure you want to move to patient page?"
+                                    help="This button will help to redirect to the patient page"/>
+                        </group>
+
                     </group>
                     <notebook>
                         <page string="Prescription" name="prescription">

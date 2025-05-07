@@ -7,7 +7,7 @@ class HospitalAppointment(models.Model):
     _rec_name = 'ref'
 
     patient_id = fields.Many2one('hospital.patient', string='Patient')
-    ref = fields.Char(string='Reference')
+    ref = fields.Char(string='Reference', help="This is for appointment Reference") #Suppose when you hover into the button you want to show some msg, then you can do by 'help'
     appointment_time = fields.Datetime(string='Appointment Time', default=fields.Datetime.now)
     booking_date = fields.Datetime(string='Booking Date', default=fields.Date.context_today)
     # This gender is the relational filed

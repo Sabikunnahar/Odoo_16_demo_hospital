@@ -11,7 +11,7 @@
                                 2. If you want to make some state visible only you can ddo that by statusbar_visible-->
                     <field name="state" widget="statusbar" class="o_field_statusbar"
                            nolabel="1" options="{'clickable': '1', 'fold_field': 'fold'}"
-                           statusbar_visible="draft,in_consultation,done"/>
+                           statusbar_visible="draft,in_consultation,progress,done"/>
                 </header>
                 <sheet>
                     <div class="o_title">
@@ -73,6 +73,13 @@
             <tree string="Doctor">
                 <field name="patient_id"/>
                 <field name="ref"/>
+                <field name="booking_date"/>
+                <field name="state" widget="badge"
+                       decoration-info="state in ('in_consultation', 'progress')"
+                       decoration-muted="state == 'canceled'"
+                       decoration-success="state == 'done'"
+                       decoration-danger="state == 'draft'"/>
+
             </tree>
         </field>
     </record>
